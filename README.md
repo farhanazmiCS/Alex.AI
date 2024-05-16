@@ -1,5 +1,7 @@
 # Alex.AI
 
+**1st Prize in the National AI Student Challenge 2024, Track 3**
+
 Greetings! I am Alex, a tool that is used to assist students and working software engineers in speeding up their software engineering needs!
 
 ## What is Alex.AI?
