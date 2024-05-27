@@ -4,11 +4,11 @@
 
 Greetings! I am Alex, a tool that is used to assist students and working software engineers in speeding up their software engineering needs!
 
-## What is Alex.AI?
+## 1 - What is Alex.AI?
 
 Alex.AI is an application powered by a large-language model (LLM) that assists software engineers with their needs in the early stages of the software development lifecycle (SDLC).
 
-### The Problem
+## 2 - The Problem
 
 - The “analysis” and “design” phases in the software development lifecycle (SDLC) are phases whereby developers take the requirements gathered in the planning phase, analyse these requirements to software use cases, and then translate them into plans to implement the solution.
   
@@ -16,19 +16,58 @@ Alex.AI is an application powered by a large-language model (LLM) that assists s
   
 - These deliverables necessitate days of examining requirements documents and frequent discussions and debates between engineers, which can be time-consuming and mentally draining. In addition, these diagrams are time-consuming to produce manually (through the use of tools such as draw.io or Lucidchart)
 
-### The Solution
+## 3 - The Solution
 
 The solution is an application powered by an LLM - using the power of prompt engineering and deep learning to enhance the analysis and design phases of the SDLC. The application is capable of performing the following tasks:
 
 1. Use Case Description generation
 2. Use Case Diagram generation
-3. Identifying potential candidate classes from the software requirements
+3. Identifying potential candidate classes
 4. Class diagram generation
 5. Component diagram generation
 
-### Prompt Engineering Techniques Used
+## 4 - App Features
 
-#### Few-shot prompting
+### 1. Home Page
+
+The home page provides users with an introduction to **Alex.AI**. The app's features, functionalities, as well as its contributors are displayed here. The sidebar allows users to navigate between the various functionalities described in the previous section.
+
+![Something](https://i.ibb.co/P15rgGz/Screenshot-2024-05-27-at-9-18-24-AM.png)
+
+### 2. Use Case Description and Use Case Diagram Generation
+
+This feature allows users to generate **Use Case Descriptions** and **Use Case Diagrams** for a software system. For context, **Use Case Description** and **Use Case Diagrams** define the use cases of a software system from the perspective of an *actor* or *user*. Without these, the question of *"What should we build?"* remains unanswered. 
+
+Typically, these software use cases are defined from a set of *requirements*, typically specified from the software client. A team of software engineers would then need to analyse each of these requirements manually, looking for the nouns and verbs that can correlate to software use cases. For a small scale software (i.e., such as a school project or prototype) product, there would be an estimate of ~20+ requirements, but for larger scale software, such as those deployed in production, the number of requirements grows exponentially, especially when more software stakeholders are involved and more security and privacy-related requirements come into play. As such, analysing each of these requirements will take up plenty of valuable time!
+
+But, don't fret! We have a solution to this. Alex.AI solves this with the ability to generate **both** Use Case Descriptions and Use Case Diagrams from a input set of requirements. An example will be shown below. 
+
+#### Example
+
+For the showcase, we will be using a subset of software requirements from a school project to develop a workload management system for security staff. In the interest of simplicity, a total of 10 functional requirements (FR) will be used for generation of the software use cases.
+
+|FR|Requirement|
+|---|---|
+|FR1|The system shall allow the staff to indicate their area preferences up to five weeks in advance while within the editing window.|
+|FR2|The system shall allow the staff to request for a change in availability and area preference after the editing window for availability editing and before the release of allocations.|
+|FR3|The system shall allow the staff to view their weekly shift allocations.|
+|FR4|The system shall allow the staff to request for a change in availability and area preference after the editing window for availability editing and before the release of allocations.|
+|FR5|The system shall allow the staff to view the overall workload for the month on their landing page.|
+|FR6|The system shall allow the staff to submit a rejection request for shifts allocated to them.|
+|FR7|The system shall provide the manager with a dashboard on the landing page for visualising the workload of staff.|
+|FR8|The system shall allow the manager to allocate shifts to staff members at weekly intervals.|
+|FR9|The system shall allow the manager to view and edit shift allocations after the allocation has been released.|
+|FR10|The system shall allow the manager to release the shift allocations to the staff.|
+   
+### 3. Candidate Class Identification
+
+### 4. Class Diagram Generation
+
+### 5. Component Disagram Generation
+
+## 6 - Prompt Engineering Techniques Used
+
+### 1. Few-shot prompting
 
 Few-shot prompting was for generating use case diagrams based on the requirements. As shown below, several "example" outputs are used as prompts to inform the model of generating the use case to requirements mapping and the actor to use case mappings:
 
@@ -60,7 +99,7 @@ template = f"""
 
 """
 ```
-#### Chain-of-thought prompting
+### 2. Chain-of-thought prompting
 
 Chain-of-thought prompting is used to generate the class diagram based on the requirements, necessitating a breakdown of complex task of creating a class diagram into smaller steps, such as identifying relationships between classes, providing examples of relationship types, as well as explaining the rationale of the relationship types chosen.
 
@@ -132,37 +171,14 @@ template = f"""
 """
 ```
 
-#### Tuning-of-Thought prompting
-
-Tuning-of-Thought prompting allows for iterative refinement of the generated diagrams.  This is when the user provides targeted feedback on the initial diagram output, prompting the AI to make specific adjustments.
-
-```
-template = f""" 
-    Make the following changes to the UML diagram that you have generated prior based on the changes listed below:
-
-    {changes}
-
-    Follow this template:
-
-    @startuml
-
-        <UML diagram here>
-
-    @enduml
-
-    In addition, explain the changes that you have made to the UML diagram, and provide your justification for each change made.
-
-"""
-```
-
-### Advantages of Alex.AI
+## 7 - Advantages of Alex.AI
 
 1. Saves time by eliminating trial-and-error in crafting prompts for complex diagrams.
 2. Reduces knowledge barrier as allowing users of any proficiency level to create quality diagrams.
 3. Explains the rationale behind the diagrams generated which indirectly teaches software design principles.
 
 
-## Usage
+## 8 - Usage
 
 - Before running the program, ensure that you have the following libraries (more details on the requirements can be found in the `requirements.txt` file):
   - streamlit
@@ -179,7 +195,7 @@ template = f"""
 
 Should you encounter any issues or have feedback, please share it with us.
 
-## Technologies Used
+## 9 - Technologies Used
 
 - Python
 - Langchain
