@@ -54,7 +54,7 @@ def add_logo_test():
         """
         <style>
             [data-testid="stSidebarNav"] {
-                background-image: url(https://i.ibb.co/qgMGtB7/alex-ai-logo.png);
+                background-image: url(https://i.ibb.co/7CVSCNF/alex-ai-logo.png);
                 background-repeat: no-repeat;
                 padding-top: 80px;
                 background-position: 20px 20px;

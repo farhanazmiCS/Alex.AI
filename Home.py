@@ -41,9 +41,9 @@ with st.container():
     Got feedback or just wanna say hi? Contact them below!
              
     - Farhan Azmi ([GitHub](https://github.com/farhanazmiCS) | [LinkedIn](https://www.linkedin.com/in/farhanazmi0017/))
-    - Munir ([GitHub](https://github.com/munirrudy-sg) | [LinkedIn](https://www.linkedin.com/in/munirrudy/))
+    - Munir Rudy ([GitHub](https://github.com/munirrudy-sg) | [LinkedIn](https://www.linkedin.com/in/munirrudy/))
     - Ang Jun Jie ([GitHub](https://github.com/buppanasu) | [LinkedIn](https://www.linkedin.com/in/ang-jun-jie-49a827174/))
-    - Eugene ([GitHub](https://github.com/eugenegancw) | [LinkedIn](https://www.linkedin.com/in/eugene-gan98/))
+    - Eugene Gan ([GitHub](https://github.com/eugenegancw) | [LinkedIn](https://www.linkedin.com/in/eugene-gan98/))
 
     ####     Ready to design? Let's get started with Alex.AI!
     """)
