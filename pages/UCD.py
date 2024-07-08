@@ -10,7 +10,10 @@ from streamlit_extras.app_logo import add_logo
 
 add_logo_test()
 
-chatbot = mode_selection()
+if 'chatbot' not in st.session_state:
+    st.session_state.chatbot = None
+
+mode_selection()
 
 if 'usecase_flag' not in st.session_state:
     st.session_state.usecase_flag = False
@@ -75,8 +78,8 @@ def generate_usecase():
 
                 {plantuml}
                  """
-    # Assuming chatbot.invoke() method takes a string and returns an object or string as a response
-    response = chatbot.invoke(template)  # Simulate invoking the chatbot with the template
+    # Assuming st.session_state.chatbot.invoke() method takes a string and returns an object or string as a response
+    response = st.session_state.chatbot.invoke(template)  # Simulate invoking the chatbot with the template
     # Here, we directly handle the response without appending it to chat history
     if response:  # Ensure response is not None or empty
         st.session_state.table_data = response.content  # Assign the response to a variable
@@ -133,7 +136,7 @@ def generate_diagram():
         st.session_state.messages.messages.append(HumanMessage(content=template))
 
         # Invoke the chatbot to generate the response
-        response = chatbot.invoke(st.session_state.messages.messages)
+        response = st.session_state.chatbot.invoke(st.session_state.messages.messages)
 
         # Extract UML code from the response
         uml_start_marker = "@startuml"
@@ -210,7 +213,7 @@ def regenerate_diagram():
         st.session_state.messages.messages.append(HumanMessage(content=template))
 
         # Invoke the chatbot to generate the updated response
-        response = chatbot.invoke(st.session_state.messages.messages)
+        response = st.session_state.chatbot.invoke(st.session_state.messages.messages)
 
         # Assume the response contains an updated UML section to be processed
         uml_start_marker = "@startuml"

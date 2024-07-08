@@ -7,12 +7,15 @@ from streamlit_extras.row import row
 from streamlit_extras.grid import grid
 from streamlit_extras.app_logo import add_logo
 
+if 'chatbot' not in st.session_state:
+    st.session_state.chatbot = None
+
 def main():
     # Set wide page config
     st.set_page_config(layout="wide")
     add_logo_test()
 
-    chatbot = mode_selection()
+    mode_selection()
 
     # Initialse chat message history
     if "messages" not in st.session_state:
@@ -96,7 +99,7 @@ def main():
                 uml_end_marker = "@enduml"
 
                 # Invoke the chatbot and define the tags to find the uml code
-                response = chatbot.invoke(st.session_state.messages.messages)
+                response = st.session_state.chatbot.invoke(st.session_state.messages.messages)
                 start_index = response.content.find(uml_start_marker)
                 end_index = response.content.find(uml_end_marker)
 
@@ -166,7 +169,7 @@ def main():
                     uml_end_marker = "@enduml"
 
                     # Invoke the chatbot and define the tags to find the uml code
-                    response = chatbot.invoke(st.session_state.messages.messages)
+                    response = st.session_state.chatbot.invoke(st.session_state.messages.messages)
                     start_index = response.content.find(uml_start_marker)
                     end_index = response.content.find(uml_end_marker)
 
@@ -239,7 +242,7 @@ def main():
                     uml_end_marker = "@enduml"
 
                     # Invoke the chatbot and define the tags to find the uml code
-                    response = chatbot.invoke(st.session_state.messages.messages)
+                    response = st.session_state.chatbot.invoke(st.session_state.messages.messages)
                     start_index = response.content.find(uml_start_marker)
                     end_index = response.content.find(uml_end_marker)
 
